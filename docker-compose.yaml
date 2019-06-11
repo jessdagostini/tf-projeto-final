@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  server1:    
+    image: php:apache
+    container_name: server1
+
+    restart: always
+
+    volumes:
+      - $PWD/app1:/var/www/html/app
+
+  server2:    
+    image: php:apache
+    container_name: server2
+
+    restart: always
+
+    volumes:
+      - $PWD/app2:/var/www/html/app
+
+  server3:    
+    image: php:apache
+    container_name: server3
+
+    restart: always
+
+    volumes:
+      - $PWD/app3:/var/www/html/app
+  
+  load-balancer:
+    depends_on:
+      - server1
+      - server2
+      - server3
+    
+    image: nginx
+    container_name: lb-nginx
+
+    restart: always
+
+    volumes:
+      - $PWD/nginx.conf:/etc/nginx/nginx.conf
+
+    ports:
+      - "8080:80"
+networks:
+  default:
+    external:
+      name: fault-tolerance
