@@ -1,5 +1,6 @@
 # Tolerância a Falhas - Projeto Final
-Implementação para trabalho final da disciplina de Tolerancia a Falhas
+Implementação para o trabalho final da disciplina de Tolerância a Falhas, utilizando Docker.
+Essa implementação foi feita com o intuito de utilizar um conceito visto em aula e largamente aplicado, que é o Balanceador de Carga. Assim, aliando a teoria com a prática entendemos melhor o seu funcionamento e a aplicabilidade no mundo real.
 
 ### O que é?
 Este é um balanceador de carga criado com os servidores web Nginx e Apache, rodando em Docker.
